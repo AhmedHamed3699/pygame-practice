@@ -25,6 +25,7 @@ player_surface = pygame.transform.scale_by(player_surface, 3.5)
 player_rect = player_surface.get_rect(midbottom = (60, 480))
 
 clouds_pos = 200
+gravity = 0
 
 while True:
     for event in pygame.event.get():
@@ -40,6 +41,16 @@ while True:
     screen.blit(ground_surface, (0,480))
     screen.blit(text_surface, (20, 20))
     screen.blit(clouds_surface, (clouds_pos, 60))
+    
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_SPACE] and player_rect.bottom >= 480:
+        gravity = -15
+    
+    gravity += 1
+    player_rect.bottom += gravity
+    if player_rect.bottom >= 480:
+        player_rect.bottom = 480
+    
     screen.blit(player_surface, player_rect)
     
     pygame.display.update()
