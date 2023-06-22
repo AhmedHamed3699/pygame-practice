@@ -12,7 +12,7 @@ ground_surface = pygame.image.load('platformer_resources/ground.png').convert()
 ground_surface = pygame.transform.scale(ground_surface, (800,120))
 
 sky_surface = pygame.Surface((800,500))
-sky_surface.fill('cyan3')
+sky_surface.fill((0,205,205))
 
 clouds_surface = pygame.image.load("platformer_resources/clouds.png").convert()
 clouds_surface = pygame.transform.scale(clouds_surface, (550,150))
